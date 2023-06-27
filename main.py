@@ -24,8 +24,13 @@ while command != 'q':
                 d['directory'] = Directories.get_directory_by_docnum(Directories, d['number'])
             prints.print_document_list(docs)
     elif command == 'ads':
-        pass
+        number = input("Введите номер полки:")
+        Directories.add_directory(Directories, number)
+        prints.print_directories_list(Directories.get_directories(Directories))
     elif command == 'ds':
+        dirnum = input("Введите номер полки:")
+        Directories.remove_directory(Directories, dirnum)
+        prints.print_directories_list(Directories.get_directories(Directories))
         pass
     elif command == 'ad':
         pass

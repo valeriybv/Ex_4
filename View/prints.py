@@ -35,3 +35,7 @@ def print_document_directory(num):
 def print_document_list(docs):
     for doc in docs:
         print ("№:", doc['number'], "тип:", doc['type'], "владелец:", doc['name'], "полка хранения:", doc['directory'])
+
+#Вывести список полок
+def print_directories_list(dirs):
+    print("Текущий перечень полок:", ', '.join(dirs))
