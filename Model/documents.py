@@ -1,4 +1,5 @@
 from constants import documents
+import View.exceptions as errors
 
 
 class Documents(object):
@@ -8,15 +9,21 @@ class Documents(object):
         self.name = name
         self.shelve = shelve
 
-    def create_item(self, type, number, name, shelve):
+    @staticmethod
+    def create_item(type, number, name, shelve):
         documents.append({'type': type, 'number': number, 'name': name})
 
-    def get_document_by_number(self, number):
+    @staticmethod
+    def get_document_by_number(number):
         result = list(filter(lambda x: x['number'] == number, documents))
         if result:
             return result[0]
         else:
-            print("Error")
+            errors.document_not_found()
+
     def get_owner(self, number):
-        doc = self.get_document_by_number(self, number)
-        return doc['name']
+        doc = self.get_document_by_number(number)
+        try:
+            return doc['name']
+        except:
+            pass

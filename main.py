@@ -1,5 +1,5 @@
 from Model.documents import Documents
-from constants import documents
+from Model.directories import Directories
 from View import prints
 
 command = input("Введите комманду:")
@@ -9,7 +9,26 @@ while command != 'q':
     elif command == 'p':
         number = input("Введите номер документа:")
         name = Documents.get_owner(Documents, number)
-        prints.print_document_owner(name)
+        if name:
+            prints.print_document_owner(name)
+    elif command == 's':
+        docnum = input("Введите номер документа:")
+        doc = Documents.get_document_by_number(docnum)
+        if doc:
+            dir = Directories.get_directory_by_docnum(Directories, docnum)
+            prints.print_document_directory(dir)
+    elif command == 'l':
+        pass
+    elif command == 'ads':
+        pass
+    elif command == 'ds':
+        pass
+    elif command == 'ad':
+        pass
+    elif command == 'd':
+        pass
+    elif command == 'm':
+        pass
     else:
         prints.wrong_command()
     command = input("Введите комманду:")
