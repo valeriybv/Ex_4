@@ -3,11 +3,11 @@ import View.exceptions as errors
 
 
 class Documents(object):
-    def __init__(self, type, number, name, shelve):
+    def __init__(self, type, number, name, directory):
         self.type = type
         self.number = number
         self.name = name
-        self.shelve = shelve
+        self.directory = directory
 
     @staticmethod
     def create_item(type, number, name, shelve):
@@ -27,3 +27,6 @@ class Documents(object):
             return doc['name']
         except:
             pass
+
+    def get_documents(self):
+        return [doc for doc in documents]

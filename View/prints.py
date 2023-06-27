@@ -15,6 +15,7 @@ def print_available_commands():
     """
     print(commands)
 
+
 # Сообщение о неизвестной комманде
 def wrong_command():
     print("Неизвестная команда. Введите /h для получения списка допустимых команд")
@@ -24,6 +25,13 @@ def wrong_command():
 def print_document_owner(name):
     print("Владелец документа: ", name)
 
+
 # Вывести полку по номеру документа
 def print_document_directory(num):
     print("Документ хранится на полке:", num)
+
+
+# Вывести список документов
+def print_document_list(docs):
+    for doc in docs:
+        print ("№:", doc['number'], "тип:", doc['type'], "владелец:", doc['name'], "полка хранения:", doc['directory'])

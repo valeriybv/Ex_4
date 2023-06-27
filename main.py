@@ -18,7 +18,11 @@ while command != 'q':
             dir = Directories.get_directory_by_docnum(Directories, docnum)
             prints.print_document_directory(dir)
     elif command == 'l':
-        pass
+        docs = Documents.get_documents(Documents)
+        if docs:
+            for d in docs:
+                d['directory'] = Directories.get_directory_by_docnum(Directories, d['number'])
+            prints.print_document_list(docs)
     elif command == 'ads':
         pass
     elif command == 'ds':
