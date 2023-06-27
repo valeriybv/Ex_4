@@ -1,5 +1,6 @@
 from Model.documents import Documents
 from Model.directories import Directories
+from Application.documentcontroller import DocumentController
 from View import prints
 
 command = input("Введите комманду:")
@@ -33,8 +34,16 @@ while command != 'q':
         prints.print_directories_list(Directories.get_directories(Directories))
         pass
     elif command == 'ad':
-        pass
+        type = input("Введите тип документа:")
+        number = input("Введите номер документа:")
+        name = input("Введите владельца документа:")
+        directory = input("Введите номер папки:")
+
+        newdoc = Documents(type, number, name, directory)
+        DocumentController.add_document(DocumentController, newdoc)
     elif command == 'd':
+        number = input("Введите номер документа для удаления:")
+        DocumentController.remove_document(number)
         pass
     elif command == 'm':
         pass

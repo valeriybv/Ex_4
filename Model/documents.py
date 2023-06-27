@@ -30,3 +30,17 @@ class Documents(object):
 
     def get_documents(self):
         return [doc for doc in documents]
+
+    def add_document(doc):
+        newitem = {}
+        newitem['type'] = doc.type
+        newitem['number'] = doc.number
+        newitem['name'] = doc.name
+        documents.append(newitem)
+
+    def remove_document(doc):
+        try:
+            documents.remove(doc)
+        except:
+            pass
+

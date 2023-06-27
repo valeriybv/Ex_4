@@ -43,3 +43,7 @@ class Directories(object):
                 del directories[dirnum]
         except:
             pass
+
+    @staticmethod
+    def apply_book_to_directory(dirnum, docnum):
+        directories[dirnum].append(docnum)
